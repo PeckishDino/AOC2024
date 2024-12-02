@@ -30,17 +30,18 @@ def two():
 
     with open("input.txt", "r") as file:
         for line in file:
-            pop_counter = 0
             status = None
             levels = line.split()
             print(levels)
-            length = len(levels)
-            ascend_or_descend = int(levels[0]) - int(levels[1])  # if the initial 2 values are ascending, descending,
+            ascending = int(levels[0]) - int(levels[1])  # if the initial 2 values are ascending, descending,
             # or no difference.
-            if ascend_or_descend > 0:
-                status = True
-            if ascend_or_descend < 0:
-                status = False
+            if ascending < 0:
+                status is True
+            for x in range(len(levels)):
+                if status is True and levels[x] - levels[x+1] >= 0:
+                    print("No longer ascending")
+                    break
+
 
 
 
