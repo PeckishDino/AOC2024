@@ -4,10 +4,9 @@ def one():
     right=[]
     with open("input.txt","r") as file:
         for line in file:
-            x = line.replace(" ","").strip()
-            split = int(len(x)/2)
-            left.append(x[0:split])
-            right.append(x[split:len(x)])
+            x = line.strip().split()
+            left.append(x[0])
+            right.append(x[-1])
     left.sort()
     right.sort()
     for x in range(len(left)):
@@ -19,17 +18,16 @@ def two():
     sum=0
     left=[]
     right=[]
-    with open("input.txt","r") as file:
+    with open("input.txt", "r") as file:
         for line in file:
-            x = line.replace(" ","").strip()
-            split = int(len(x)/2)
-            left.append(x[0:split])
-            right.append(x[split:len(x)])
+            x = line.strip().split()
+            left.append(x[0])
+            right.append(x[-1])
     left.sort()
     right.sort()
     for x in range(len(left)):
         similarity = right.count(left[x])
-        sum+=abs((int(left[x])*similarity))
+        sum+=(int(left[x])*similarity)
     print(sum)
 
 
