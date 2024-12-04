@@ -11,8 +11,10 @@ def one():
             if y == "X":
                 print("Found X at index", i, j)
                 for di, dj in directions:
-                    if 0 <= i + 3 * di < length and 0 <= j + 3 * dj < length and word_search[i + di][j + dj] == "M" and \
-                            word_search[i + 2 * di][j + 2 * dj] == "A" and word_search[i + 3 * di][j + 3 * dj] == "S":
+                    if 0 <= i + 3 * di < length and 0 <= j + 3 * dj < length and \ 
+                            word_search[i + di][j + dj] == "M" and \
+                            word_search[i + 2 * di][j + 2 * dj] == "A" and \
+                            word_search[i + 3 * di][j + 3 * dj] == "S":
                         print("Found XMAS")
                         count += 1
     print("found", count, "christmases", "meow")
