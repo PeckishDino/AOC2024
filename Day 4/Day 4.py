@@ -5,6 +5,7 @@ def one():
 
     length = len(word_search)
     directions = (0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (1, 1), (-1, 1), (1, -1)
+    print(directions)
 
     for i, x in enumerate(word_search):
         for j, y in enumerate(x):
@@ -20,7 +21,7 @@ def one():
     print("found", count, "christmases", "meow")
 
 
-# one()
+one()
 
 
 def two():
