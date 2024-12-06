@@ -55,21 +55,16 @@ def two():
         if correct_order != length - 1:
             pages.append(x)
 
-    counts = Counter(tuple(page) for page in pages)
-    incorrect_order = [page for page in pages if counts[tuple(page)] != len(page) - 2]
-    unique_order = [list(t) for t in set(tuple(page) for page in incorrect_order)]
-
-    for x in unique_order:
+    for x in pages:
         h = 0
         while h < len(x):
             for y in rules:
                 y = y.split()
-                if y[-1] in x:
+                if y[-1] in x and y[0] in x:
                     right_number_index = x.index(y[-1])
-                    if y[0] in x:
-                        left_number_index = x.index(y[0])
-                        if left_number_index > right_number_index:
-                            x.insert(left_number_index, x.pop(right_number_index))
+                    left_number_index = x.index(y[0])
+                    if left_number_index > right_number_index:
+                        x.insert(left_number_index, x.pop(right_number_index))
             h += 1
         middle_number = x[int((len(x) - 1) / 2)]
         count += int(middle_number)
