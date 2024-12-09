@@ -24,7 +24,7 @@ def one():
                 # print(_, "found at index", i, index)
                 coords.append((i, index))
 
-        print(coords)
+        #print(coords)
         for _ in coords:
             for i in range(len(coords)):
                 if _ != coords[i]:
@@ -80,15 +80,14 @@ def two():
                     x = _[0] - coords[i][0]
                     y = _[-1] - coords[i][-1]
                     # print("distance:",x,y)
-                    loop = True
                     a = 1
-                    while loop:
+                    while True:
                         antinode_coords = (_[0] - a*x, _[-1] - a*y)
-                        print(antinode_coords)
+                        #print(antinode_coords)
                         if 0 <= antinode_coords[0] < width and 0 <= antinode_coords[-1] < height:
                             antinodes.append(antinode_coords)
                         else:
-                            loop = False
+                            break
                         a+=1
     # print(antinodes)
     print(len(set(antinodes)))
