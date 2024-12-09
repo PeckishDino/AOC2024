@@ -20,18 +20,18 @@ def one():
         if string_list[-1] != "." and c != "0":
             id += 1
         start += 1
-    #print(string_list)
+    print(string_list)
     length = len(string_list)
     #print(length)
     z = length - 1
     while z > 0 and "." in string_list:
-            closest_dot = string_list.index(".")
-            if string_list[z] == ".":
-                string_list.pop(z)
-            else:
-                string_list[closest_dot] = string_list.pop(z)
-            z -= 1
-            #print(string_list)
+        closest_dot = string_list.index(".")
+        if string_list[z] == ".":
+            string_list.pop(z)
+        else:
+            string_list[closest_dot] = string_list.pop(z)
+        z -= 1
+    print(string_list)
 
 
     for i,_ in enumerate(string_list):
