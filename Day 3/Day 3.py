@@ -25,7 +25,7 @@ def two():
                     status = False
                 elif y == "do()":
                     status = True
-                elif status is True:
+                elif status:
                     nums = re.findall(r"\d+", y)
                     sum += int(nums[0]) * int(nums[-1])
     print(sum)

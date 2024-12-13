@@ -48,7 +48,8 @@ def two():
                     if (status is False and ascend_or_descend2 > 0) \
                             or (status is True and ascend_or_descend2 < 0) \
                             or status is None \
-                            or abs(ascend_or_descend2) < 1 or abs(ascend_or_descend2) > 3:
+                            or abs(ascend_or_descend2) < 1 \
+                            or abs(ascend_or_descend2) > 3:
                         break  # breaks if the increment is 0, or it switches from ascend to descend or vice versa
             if valid_levels2 > 0:
                 valid_levels += 1
