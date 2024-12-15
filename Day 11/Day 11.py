@@ -1,51 +1,43 @@
 def one():
-    with open("input.txt","r") as file:
-        file = file.readlines()
     blinks = 25
-    string = file[0]
-    print(string)
-    file = string.split()
-    print(file)
-    stones = []
+    stones = [int(x) for x in open("input.txt").read().split()]
 
-    for x in range(blinks):
-        print(x)
-        for _ in file:
-            if int(_) == 0:
-                stones.append(1)
-            elif len(str(_)) % 2 == 0:
-                stones.append(int(str(_)[:int(len(str(_))/2)]))
-                stones.append(int(str(_)[int(len(str(_))/2):]))
+    for _ in range(blinks):
+        output = []
+        for stone in stones:
+            string = str(stone)
+            length = len(string)
+            if stone == 0:
+                output.append(1)
+            elif length % 2 == 0:
+                output.append(int(string[:length // 2]))
+                output.append(int(string[length // 2:]))
             else:
-                stones.append((int(_)*2024))
-        file.clear()
-        file.extend(stones)
+                output.append(stone * 2024)
+        stones = output
     print(len(stones))
+
 
 one()
 
-def two():
-    with open("input.txt","r") as file:
-        file = file.readlines()
-    blinks = 25
-    string = file[0]
-    print(string)
-    file = string.split()
-    print(file)
-    stones = []
+from functools import cache
 
-    for x in range(blinks):
-        print(x)
-        for _ in file:
-            if int(_) == 0:
-                stones.append(1)
-            elif len(str(_)) % 2 == 0:
-                stones.append(int(str(_)[:int(len(str(_))/2)]))
-                stones.append(int(str(_)[int(len(str(_))/2):]))
-            else:
-                stones.append((int(_)*2024))
-        file.clear()
-        file.extend(stones)
-    print(len(stones))
+stones = [int(x) for x in open("input.txt").read().split()]
 
-two()
+
+@cache
+def count(stone, steps):
+    if steps == 0:
+        return 1
+    if stone == 0:
+        return count(1, steps - 1)
+    string = str(stone)
+    length = len(string)
+    if length % 2 == 0:
+        return count(int(string[:length // 2]), steps - 1) + count(int(string[length // 2:]), steps - 1)
+    return count(stone * 2024, steps - 1)
+
+print(sum(count(stone, 75) for stone in stones))
+
+
+

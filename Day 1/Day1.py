@@ -1,6 +1,6 @@
 def parse(file):
     global left, right
-    left,right = [],[]
+    left, right = [], []
     with open(file, "r") as f:
         for line in f:
             x = line.strip().split()
